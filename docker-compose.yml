@@ -1,0 +1,14 @@
+version: '3.1' # version of docker compose
+services: # specifies the micro services you want to run
+  db: # create an image by the name mysql
+    image: mysql # specify the image to download from docker hub
+    ports: ["3306:3306"] # expose port
+    hostname: mysql
+    environment: # specify the password and defautl db to connect to, default root user will be picked up
+      - MYSQL_ROOT_PASSWORD=R$$T
+      - MYSQL_DATABASE=test_project_db
+  app:
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
