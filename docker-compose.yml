@@ -5,8 +5,10 @@ services: # specifies the micro services you want to run
     ports: ["3306:3306"] # expose port
     hostname: mysql
     environment: # specify the password and defautl db to connect to, default root user will be picked up
-      - MYSQL_ROOT_PASSWORD=R$$T
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=test_project_db
+      - MYSQL_USER=me
+      - MYSQL_PASSWORD=azerty
   app:
     restart: always
     build: .

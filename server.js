@@ -17,10 +17,11 @@ const
 
   app = express(),
   mysql = require('mysql'),
+  
   connection = mysql.createConnection({
-    host     : '127.0.0.1',
+    host     : 'localhost',
     user     : 'me',
-    password : 'root',
+    password : 'azerty',
     database : 'test_project_db',
     port     : 3306
   });
