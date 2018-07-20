@@ -18,21 +18,22 @@ const
   app = express(),
   mysql = require('mysql'),
   connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'test_project_db',
-    password : 'R$$T'
+    host     : '127.0.0.1',
+    user     : 'me',
+    password : 'root',
+    database : 'test_project_db',
+    port     : 3306
   });
 //   users = require('./backend/routes/users');
 
 // require('./backend/passports/user-passport');
 
-connection.connect();
-
-connection.query('SELECT 1 + 1 AS solution', (err, rows, fields) => {
-  if (err) {
-      console.error(err);
-  }
-  console.log('The solution is: ', rows[0].solution);
+connection.connect((err) => {
+    if (err) {
+        console.error('error during db conneciton', err);
+    } else {
+        console.log("You're connected to your db !");
+    }
 });
 
 connection.end();
